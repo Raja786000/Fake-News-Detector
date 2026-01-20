@@ -7,7 +7,14 @@ import string
 import nltk
 
 # Download stopwords (first time only)
-nltk.download('stopwords')
+# nltk.download('stopwords')
+
+
+try:
+    nltk.data.find("corpora/stopwords")
+except LookupError:
+    nltk.download("stopwords", quiet=True)
+
 from nltk.corpus import stopwords
 
 # Flask App Setup
@@ -103,5 +110,9 @@ def result():
         return redirect('/check')
 
 # -------------------- Run App --------------------
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
+

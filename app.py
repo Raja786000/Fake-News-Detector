@@ -19,6 +19,17 @@ from nltk.corpus import stopwords
 
 # Flask App Setup
 app = Flask(__name__)
+
+@app.route("/health")
+def health():
+    return "OK", 200
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+ 
+
+
 app.secret_key = 'your_secret_key'  # needed for flash messages
 
 # -------------------- Load Model & Vectorizer --------------------

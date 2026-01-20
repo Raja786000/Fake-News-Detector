@@ -42,6 +42,7 @@ except Exception as e:
     print("❌ Error loading model or vectorizer:", e)
 
 # -------------------- Text Cleaning Function --------------------
+
 def clean_text(text):
     try:
         text = str(text).lower()
@@ -121,8 +122,6 @@ def result():
         return redirect('/check')
 
 # -------------------- Run App --------------------
-
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)

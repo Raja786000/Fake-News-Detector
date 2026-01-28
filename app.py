@@ -24,9 +24,9 @@ app = Flask(__name__)
 def health():
     return "OK", 200
 
-@app.route("/")
-def home():
-    return render_template("index.html")
+# @app.route("/")
+# def home():
+#     return render_template("index.html")
  
 
 
@@ -61,6 +61,7 @@ def clean_text(text):
 
 # Home Page
 @app.route('/')
+
 def home():
     return render_template('index.html')
 
